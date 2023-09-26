@@ -25,6 +25,8 @@ body {
   }
 }
 
+/******* STYLE FOR HEADER *******/
+
 header {
   background-image: url("../images/banksy_header.webp");
   background-repeat: no-repeat;
@@ -40,22 +42,29 @@ header {
   padding: 0;
   overflow: hidden;
   background-color: rgb(112, 167, 240);
+  border-bottom: 1px solid white;
+
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 .topnav li {
   float: left;
+  width: 120px;
 }
 
 .topnav li a {
-  display: inline-block;
+  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   border-right: 1px solid white;
+  
 }
 
-.topnav li a:hover {
+.topnav li a:hover:not(.active) {
   background-color: rgb(173, 196, 226);
   color: black;
 }
@@ -63,12 +72,30 @@ header {
 .active {
   background-color: rgb(20, 75, 170);
 }
+
+li.right {
+  float: right;
+  border-left: 1px solid white;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav li {
+    float:none;
+    width: 100%;
+  }
+}
+
 /*
 article *:first-child {
   font-weight: bold;
   color: blue;
 }
 */
+
+/******* STYLE FOR MAIN *******/
+
 img {
   width: 200px;
   height: 150px;
@@ -125,24 +152,43 @@ h1, h2, h3 {
 }
 
 article {
-  width: 75%;
+  width: 70%;
   float: left;
+  padding: 20px;
+}
+
+article p:first-child {
+  color: rgb(112, 167, 240);
+}
+
+article p::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}   
+
+article p:first-child::first-line {
+  font-size: 200%;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.insert::before {
+  content: "This is some content added with CSS. ";
 }
 
 aside {
-
   background: linear-gradient(rgb(112, 167, 240), rgb(214, 228, 246));
-
-  width: 20%;
+  width: 15%;
   float: right;
   /*border: 1px solid white;
   margin: 10px;*/
   padding: 20px;
 }
 
+
+
 aside > h2 {
   color: black;
-  
 }
 
 footer {
@@ -177,7 +223,7 @@ footer p {
   margin: 20px auto;
 }
 
-.sidenav {
+.sidenav, .sidenav-left {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -187,7 +233,7 @@ footer p {
   font-size: 0.8em;
 }
 
-.sidenav li a {
+.sidenav li a, .sidenav-left li a {
   display: block;
   color: white;
   text-align: center;
@@ -196,8 +242,47 @@ footer p {
   border-bottom: 1px solid white;
 }
 
-.sidenav li a:hover {
+.sidenav li:last-child a, .sidenav-left li:last-child a {
+  
+  border-bottom: none;
+}
+
+.sidenav li a:hover, .sidenav-left li a:hover {
   background-color: rgb(173, 196, 226);
   color: rgb(7, 49, 103);
-  
+  border: 1px solid white;
+}
+
+img[class="pulp"] {
+  border: 2px solid rgb(173, 196, 226);
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+
+p.capital::first-letter {
+  font-size: xx-large;
+  color: rgb(7, 49, 103);
+}
+
+aside.left {
+  background: linear-gradient(rgb(112, 167, 240), rgb(214, 228, 246));
+  width: 15%;
+  float: left;
+  /*border: 1px solid white;
+  margin: 10px;*/
+  padding: 20px;
+}
+
+aside > h2 {
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  aside.right, aside.left {
+    float: none;
+    width: 100%;
+  }
 }
