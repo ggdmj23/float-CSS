@@ -36,17 +36,19 @@ header {
   border: 2px solid white;
 }
 
+nav {
+  margin-top: -25px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 .topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: rgb(112, 167, 240);
-  border-bottom: 1px solid white;
-
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
 }
 
 .topnav li {
@@ -61,7 +63,6 @@ header {
   padding: 14px 16px;
   text-decoration: none;
   border-right: 1px solid white;
-  
 }
 
 .topnav li a:hover:not(.active) {
@@ -78,6 +79,10 @@ li.right {
   border-left: 1px solid white;
   margin: 0;
   padding: 0;
+}
+
+.topnav li:last-child a {
+  border-right: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -185,8 +190,6 @@ aside {
   padding: 20px;
 }
 
-
-
 aside > h2 {
   color: black;
 }
@@ -243,7 +246,6 @@ footer p {
 }
 
 .sidenav li:last-child a, .sidenav-left li:last-child a {
-  
   border-bottom: none;
 }
 
